@@ -1,0 +1,149 @@
+configuration {
+  display-drun: "Applications: ";
+  display-run: "Run: ";
+  display-window: "Windows: ";
+  drun-display-format: "{icon} {name}";
+  window-display-format: "{icon} {workspace} {name}";
+
+  font: "BlexMono Nerd Font Bold 12";
+  modi: "drun,window,run";
+  show-icons: true;
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #1f2329;
+  bgTrans: #1f232966;
+  bgClear: #1f232900;
+  fg: #a0a8b7;
+
+  purple: #bf68d9;
+  orange: #cc9057;
+  yellow: #e2b86d;
+  green: #8ebd6b;
+  red: #e55561;
+  blue: #4fa6ed;
+
+  text-style: bold;
+}
+
+window {
+  background-color: @bgTrans;
+  // border: 3.5px;
+  border-color: @yellow;
+  width: 30%;
+}
+
+overlay {
+  background-color: @bgTrans;
+}
+
+mainbox {
+  children: [inputbar, listview, mode-switcher];
+  background-color: @bgTrans;
+  padding: 15;
+}
+
+// ######################################################################### //
+// Input Bar
+inputbar {
+  children: [prompt, entry];
+  background-color: @bgClear;
+  text-color: @fg;
+  margin: 10;
+  padding: 2;
+  border: 2;
+  border-color: @yellow;
+}
+
+prompt {
+  background-color: @bgTrans;
+  text-color: @blue;
+}
+
+// Typing Area
+entry {
+  background-color: @bgTrans;
+  text-color: @blue;
+}
+
+// ######################################################################### //
+//List
+listview {
+  children: [element, scrollbar];
+  background-color: @bgTrans;
+  scrollbar: true;
+  lines: 10;
+  columns: 2;
+
+  margin: 10;
+  padding: 2;
+  border: 2;
+  border-color: @yellow;
+}
+
+scrollbar {
+  background-color: @bgTrans;
+  handle-color: @yellow;
+  handle-width: 10px;
+  padding: 2;
+  border: 0;
+  border-color: @fg;
+}
+// List Elements
+element {
+  children: [element-icon, element-text];
+  spacing: 10px;
+  background-color: @bgClear;
+}
+
+element selected {
+  background-color: @fg;
+  text-color: @bgTrans;
+}
+
+// List Icons
+element-icon {
+  background-color: @bgClear;
+  size: 1.5em;
+}
+
+element-icon selected {
+  background-color: @fg;
+  text-color: @bg;
+}
+
+// List Text
+element-text {
+  text-color: @blue;
+  background-color: @bgClear;
+  vertical-align: 0.5;
+}
+
+element-text selected {
+  background-color: @fg;
+  text-color: @bg;
+}
+
+// ######################################################################### //
+//Mode Switcher
+mode-switcher {
+  children: [button];
+  background-color: @bgClear;
+
+  margin: 10;
+  padding: 2;
+  border: 2;
+  border-color: @yellow;
+}
+
+button {
+  background-color: @bgClear;
+  text-color: @blue;
+}
+
+button selected {
+  background-color: @fg;
+  text-color: @bg;
+}
